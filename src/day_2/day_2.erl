@@ -26,16 +26,16 @@ run2() ->
 
 calculate_score(PlaysList) ->
     Fun = fun(E, Acc) ->
-        case lists:reverse(E) of
-            "X C" -> Acc + 6 + 1;
-            "Y A" -> Acc + 6 + 2;
-            "Z B" -> Acc + 6 + 3;
-            "X A" -> Acc + 3 + 1;
-            "Y B" -> Acc + 3 + 2;
-            "Z C" -> Acc + 3 + 3;
-            "X" ++ _ -> Acc + 1;
-            "Y" ++ _ -> Acc + 2;
-            "Z" ++ _ -> Acc + 3
+        case E of
+            "C X" -> Acc + 6 + 1;
+            "A Y" -> Acc + 6 + 2;
+            "B Z" -> Acc + 6 + 3;
+            "A X" -> Acc + 3 + 1;
+            "B Y" -> Acc + 3 + 2;
+            "C Z" -> Acc + 3 + 3;
+            "B X" -> Acc + 1;
+            "C Y" -> Acc + 2;
+            "A Z" -> Acc + 3
         end
     end,
     lists:foldl(Fun, 0, PlaysList).
